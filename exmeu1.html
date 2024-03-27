@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.cdnfonts.com/css/beyond-wonderland" rel="stylesheet">
+    <title>Green Fairy Forest Time</title>
+    <style>
+        @import url('https://fonts.cdnfonts.com/css/beyond-wonderland');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box; 
+        }
+
+        body {
+            background: url(imagens/fundo.gif) center center no-repeat;
+            background-size: cover;
+            display: flex;
+            flex-direction: column; 
+            min-height: 100vh;
+            font-family: 'Beyond Wonderland', sans-serif;
+            overflow-y: hidden;
+        }
+
+        header {
+            color: rgba(30, 133, 133, 0.582);
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        section {
+            background: rgba(255, 255, 255, 0.6);
+            padding: 15px;
+            width: 90%;
+            max-width: 900px;
+            height: 600px; 
+            text-align: center;
+            margin: auto;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            padding-top: 50px;
+            color: rgb(0, 0, 0);
+            font-size: 4.5em;
+            margin-bottom: 15px;
+        }
+
+        #msg {
+            padding: 50px;
+            font-size: 2.5em;
+        }
+
+        #photo img {
+            max-width: 100%;
+            height: auto; 
+        }
+
+        footer {
+            color: black;
+            text-align: center;
+            margin-top: auto; 
+            padding: 30px; 
+            background-color: transparent;
+            font-size: 1.9em;
+        }
+
+        footer a {
+        color: #1e3518;
+        }
+        
+    </style>
+</head>
+<body onload="carregar()">
+    <header>
+        <h1>Green Fairy Forest Time</h1>
+    </header>
+    
+    <section>
+        <div id="msg">Here will be displayed the current time</div>
+
+        <div id="photo">
+            <img id="imagem" src="imagens/manha.png" alt="Time of day">
+        </div>
+    </section>
+
+    <footer>
+        <h4>Site created by <a href="https://www.instagram.com/gabrielerotta/">Gabriele Rotta</a></h4>
+    </footer>
+    
+    <script>
+        function carregar() {
+            var msg = window.document.getElementById('msg');
+            var img = window.document.getElementById('imagem');
+            var data = new Date();
+            var hora = data.getHours();
+            var saudacao;
+
+            if (hora >= 0 && hora < 12) {
+                saudacao = "Good Morning!";
+                img.src = 'imagens/manha.png'; 
+            } else if (hora >= 12 && hora < 18) {
+                saudacao = "Good Afternoon!";
+                img.src = 'imagens/tarde.png'; 
+            } else {
+                saudacao = "Good Night!";
+                img.src = 'imagens/noite.png'; 
+            }
+            msg.innerHTML = `It is currently ${hora} o'clock`;
+            if (saudacao === "Good Morning!") {
+                msg.innerHTML += "<br>" + saudacao;
+            }
+            if (saudacao === "Good Afternoon!") {
+                msg.innerHTML += "<br>" + saudacao;
+            }
+            if (saudacao === "Good Night!") {
+                msg.innerHTML += "<br>" + saudacao;
+            }
+        }
+    </script>
+    
+</body>
+</html>
